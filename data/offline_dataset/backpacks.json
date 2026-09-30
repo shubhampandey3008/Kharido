@@ -1,0 +1,242 @@
+[
+  {
+    "product_id": "bp-001",
+    "title": "Wildcraft Trident 45L",
+    "brand": "Wildcraft",
+    "price_inr": 2199,
+    "rating": 4.2,
+    "rating_count": 6800,
+    "key_specs": {
+      "capacity_l": "45",
+      "material": "polyester",
+      "water_resistant": "yes",
+      "laptop_compartment": "yes",
+      "weight_kg": "0.9",
+      "back_padding": "yes"
+    },
+    "image_url": "",
+    "product_url": "https://www.wildcraft.in/trident-45",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "Great for trekking. Water-resistant cover included.",
+      "Comfortable padded straps even with heavy load.",
+      "Zippers feel durable after 1 year of daily use."
+    ]
+  },
+  {
+    "product_id": "bp-002",
+    "title": "American Tourister AMT WORK 01 Laptop Backpack",
+    "brand": "American Tourister",
+    "price_inr": 1799,
+    "rating": 4.1,
+    "rating_count": 12400,
+    "key_specs": {
+      "capacity_l": "28",
+      "material": "polyester",
+      "water_resistant": "no",
+      "laptop_compartment": "yes",
+      "weight_kg": "0.6",
+      "back_padding": "yes"
+    },
+    "image_url": "",
+    "product_url": "https://www.americantourister.in/amt-work-01",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "Good laptop bag for office use. Fits 15.6 inch laptop easily.",
+      "Not water resistant — got soaked in rain once.",
+      "Lightweight and comfortable shoulder straps."
+    ]
+  },
+  {
+    "product_id": "bp-003",
+    "title": "Skybags Bingo Plus 30L",
+    "brand": "Skybags",
+    "price_inr": 1499,
+    "rating": 3.9,
+    "rating_count": 18700,
+    "key_specs": {
+      "capacity_l": "30",
+      "material": "polyester",
+      "water_resistant": "no",
+      "laptop_compartment": "yes",
+      "weight_kg": "0.5",
+      "back_padding": "yes"
+    },
+    "image_url": "",
+    "product_url": "https://www.skybags.co.in/bingo-plus",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "Budget pick. Does the job for daily college use.",
+      "Strap stitching came loose after 6 months.",
+      "No waterproofing — laptop got wet during rain."
+    ]
+  },
+  {
+    "product_id": "bp-004",
+    "title": "F Gear Luxur 35L",
+    "brand": "F Gear",
+    "price_inr": 1999,
+    "rating": 4.3,
+    "rating_count": 4200,
+    "key_specs": {
+      "capacity_l": "35",
+      "material": "polyester",
+      "water_resistant": "yes",
+      "laptop_compartment": "yes",
+      "weight_kg": "0.7",
+      "back_padding": "yes"
+    },
+    "image_url": "",
+    "product_url": "https://www.fgear.in/luxur-35",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "Water-resistant coating works well in moderate rain.",
+      "Multiple compartments make it very organised.",
+      "Great build quality for the price."
+    ]
+  },
+  {
+    "product_id": "bp-005",
+    "title": "Samsonite Xenon 3.0 Laptop Backpack",
+    "brand": "Samsonite",
+    "price_inr": 5499,
+    "rating": 4.5,
+    "rating_count": 1800,
+    "key_specs": {
+      "capacity_l": "29",
+      "material": "nylon",
+      "water_resistant": "yes",
+      "laptop_compartment": "yes",
+      "weight_kg": "0.8",
+      "back_padding": "yes"
+    },
+    "image_url": "",
+    "product_url": "https://www.samsonite.in/xenon-3-laptop-backpack",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "Premium build. Used it daily for 2 years with zero issues.",
+      "Water resistant and keeps laptop dry in heavy rain.",
+      "Ergonomic back panel — comfortable for long commutes."
+    ]
+  },
+  {
+    "product_id": "bp-006",
+    "title": "Safari Iota 45L",
+    "brand": "Safari",
+    "price_inr": 1699,
+    "rating": 4.0,
+    "rating_count": 9200,
+    "key_specs": {
+      "capacity_l": "45",
+      "material": "polyester",
+      "water_resistant": "no",
+      "laptop_compartment": "no",
+      "weight_kg": "0.8",
+      "back_padding": "yes"
+    },
+    "image_url": "",
+    "product_url": "https://www.safaribags.com/iota-45",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "Large capacity for travel. Good for weekend trips.",
+      "No laptop sleeve is a downside.",
+      "Durable but not waterproof — use a rain cover."
+    ]
+  },
+  {
+    "product_id": "bp-007",
+    "title": "Puma Phase Backpack",
+    "brand": "Puma",
+    "price_inr": 2799,
+    "rating": 4.2,
+    "rating_count": 3100,
+    "key_specs": {
+      "capacity_l": "24",
+      "material": "polyester",
+      "water_resistant": "no",
+      "laptop_compartment": "yes",
+      "weight_kg": "0.5",
+      "back_padding": "yes"
+    },
+    "image_url": "",
+    "product_url": "https://in.puma.com/phase-backpack",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "Sporty design. Fits 15 inch laptop snugly.",
+      "Good for gym + office combo use.",
+      "Not water resistant — only suitable for dry weather."
+    ]
+  },
+  {
+    "product_id": "bp-008",
+    "title": "Decathlon Quechua NH Arpenaz 20L",
+    "brand": "Quechua",
+    "price_inr": 999,
+    "rating": 4.3,
+    "rating_count": 22000,
+    "key_specs": {
+      "capacity_l": "20",
+      "material": "polyester",
+      "water_resistant": "yes",
+      "laptop_compartment": "no",
+      "weight_kg": "0.35",
+      "back_padding": "yes"
+    },
+    "image_url": "",
+    "product_url": "https://www.decathlon.in/quechua-arpenaz-20",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "Best budget hiking backpack. Water-resistant in light rain.",
+      "Ultra lightweight at 350g. Perfect for day hikes.",
+      "No laptop compartment — strictly for outdoor use."
+    ]
+  },
+  {
+    "product_id": "bp-009",
+    "title": "Tommy Hilfiger Essential 25L",
+    "brand": "Tommy Hilfiger",
+    "price_inr": 7999,
+    "rating": 4.4,
+    "rating_count": 560,
+    "key_specs": {
+      "capacity_l": "25",
+      "material": "canvas",
+      "water_resistant": "no",
+      "laptop_compartment": "yes",
+      "weight_kg": "0.7",
+      "back_padding": "yes"
+    },
+    "image_url": "",
+    "product_url": "https://www.tommy.com/essential-backpack",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "Premium canvas looks great. Great style for work.",
+      "Canvas is not waterproof at all — avoid in rain.",
+      "Padded laptop section is well designed."
+    ]
+  },
+  {
+    "product_id": "bp-010",
+    "title": "Targus CitySmart 15.6 Laptop Backpack",
+    "brand": "Targus",
+    "price_inr": 3499,
+    "rating": 4.3,
+    "rating_count": 2300,
+    "key_specs": {
+      "capacity_l": "26",
+      "material": "polyester",
+      "water_resistant": "yes",
+      "laptop_compartment": "yes",
+      "weight_kg": "0.75",
+      "back_padding": "yes"
+    },
+    "image_url": "",
+    "product_url": "https://www.targus.com/in/city-smart-backpack",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "Excellent laptop protection. Well padded and water resistant.",
+      "Works great in light to moderate rain — laptop stays dry.",
+      "Many pockets keep accessories organised."
+    ]
+  }
+]

@@ -1,0 +1,242 @@
+[
+  {
+    "product_id": "rs-001",
+    "title": "Adidas Duramo 10",
+    "brand": "Adidas",
+    "price_inr": 3999,
+    "rating": 4.3,
+    "rating_count": 2840,
+    "key_specs": {
+      "upper": "mesh",
+      "sole": "rubber",
+      "weight_g": "285",
+      "waterproof": "no",
+      "closure": "lace-up",
+      "color_options": "black,blue,grey"
+    },
+    "image_url": "",
+    "product_url": "https://www.adidas.co.in/duramo-10",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "Great grip on wet roads, used them in monsoon and didn't slip once.",
+      "Sole started peeling after 4 months of daily use.",
+      "Very lightweight, comfortable for 10k runs. Width is slightly narrow."
+    ]
+  },
+  {
+    "product_id": "rs-002",
+    "title": "Nike Revolution 6",
+    "brand": "Nike",
+    "price_inr": 4495,
+    "rating": 4.1,
+    "rating_count": 1920,
+    "key_specs": {
+      "upper": "mesh",
+      "sole": "rubber",
+      "weight_g": "290",
+      "waterproof": "no",
+      "closure": "lace-up",
+      "color_options": "white,black,navy"
+    },
+    "image_url": "",
+    "product_url": "https://www.nike.com/in/revolution-6",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "Good cushioning for daily runs. Sole grips well on dry roads.",
+      "Slipped on wet tiles — not ideal for rainy weather.",
+      "White color gets dirty quickly. Comfortable fit though."
+    ]
+  },
+  {
+    "product_id": "rs-003",
+    "title": "ASICS Gel-Contend 8",
+    "brand": "ASICS",
+    "price_inr": 5499,
+    "rating": 4.5,
+    "rating_count": 876,
+    "key_specs": {
+      "upper": "synthetic mesh",
+      "sole": "AHAR rubber",
+      "weight_g": "310",
+      "waterproof": "no",
+      "closure": "lace-up",
+      "color_options": "black,blue,green"
+    },
+    "image_url": "",
+    "product_url": "https://www.asics.com/in/gel-contend-8",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "Excellent grip on all surfaces including wet roads. Used through entire monsoon.",
+      "Durable — no peeling after 8 months of regular use.",
+      "Slightly heavy but very stable for long runs."
+    ]
+  },
+  {
+    "product_id": "rs-004",
+    "title": "Skechers Go Run Consistent",
+    "brand": "Skechers",
+    "price_inr": 3299,
+    "rating": 4.0,
+    "rating_count": 3150,
+    "key_specs": {
+      "upper": "mesh",
+      "sole": "rubber",
+      "weight_g": "265",
+      "waterproof": "no",
+      "closure": "lace-up",
+      "color_options": "black,grey,navy,red"
+    },
+    "image_url": "",
+    "product_url": "https://www.skechers.com/in/go-run-consistent",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "Lightweight and breathable. Good for casual runs.",
+      "Grip is average on wet surfaces — slipped once during rain.",
+      "Value for money at this price. Sole is thin though."
+    ]
+  },
+  {
+    "product_id": "rs-005",
+    "title": "Puma Softride Rift",
+    "brand": "Puma",
+    "price_inr": 3749,
+    "rating": 4.2,
+    "rating_count": 1450,
+    "key_specs": {
+      "upper": "mesh",
+      "sole": "rubber",
+      "weight_g": "275",
+      "waterproof": "no",
+      "closure": "lace-up",
+      "color_options": "black,blue,white"
+    },
+    "image_url": "",
+    "product_url": "https://in.puma.com/softride-rift",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "Soft cushioning, feels great for everyday wear.",
+      "Decent grip on wet roads but not the best for heavy rain.",
+      "Stylish design. Comfortable for long walks and light runs."
+    ]
+  },
+  {
+    "product_id": "rs-006",
+    "title": "Reebok Floatride Energy 5",
+    "brand": "Reebok",
+    "price_inr": 4999,
+    "rating": 4.4,
+    "rating_count": 620,
+    "key_specs": {
+      "upper": "knit mesh",
+      "sole": "rubber",
+      "weight_g": "270",
+      "waterproof": "no",
+      "closure": "lace-up",
+      "color_options": "black,white,teal"
+    },
+    "image_url": "",
+    "product_url": "https://www.reebok.in/floatride-energy-5",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "Responsive cushioning. Great for tempo runs.",
+      "Grip holds well on wet pavement — used in monsoon regularly.",
+      "Knit upper dries quickly after getting wet."
+    ]
+  },
+  {
+    "product_id": "rs-007",
+    "title": "New Balance Fresh Foam 520v8",
+    "brand": "New Balance",
+    "price_inr": 6499,
+    "rating": 4.6,
+    "rating_count": 340,
+    "key_specs": {
+      "upper": "engineered mesh",
+      "sole": "blown rubber",
+      "weight_g": "295",
+      "waterproof": "no",
+      "closure": "lace-up",
+      "color_options": "black,navy,grey"
+    },
+    "image_url": "",
+    "product_url": "https://www.newbalance.in/fresh-foam-520v8",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "Best cushioning I've used. Very comfortable for long distances.",
+      "Excellent wet grip — no issues running in rain.",
+      "Slightly above budget but worth it for the quality."
+    ]
+  },
+  {
+    "product_id": "rs-008",
+    "title": "Salomon Speedcross 6",
+    "brand": "Salomon",
+    "price_inr": 9999,
+    "rating": 4.7,
+    "rating_count": 210,
+    "key_specs": {
+      "upper": "protective mesh",
+      "sole": "Contagrip MA",
+      "weight_g": "310",
+      "waterproof": "no",
+      "closure": "QuickLace",
+      "color_options": "black,green,orange"
+    },
+    "image_url": "",
+    "product_url": "https://www.salomon.com/speedcross-6",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "Trail shoe with incredible grip even in mud and wet conditions.",
+      "Aggressive lugs handle rain and wet terrain perfectly.",
+      "Premium price but unmatched performance in wet weather."
+    ]
+  },
+  {
+    "product_id": "rs-009",
+    "title": "Decathlon Kiprun KS500",
+    "brand": "Kiprun",
+    "price_inr": 2999,
+    "rating": 4.1,
+    "rating_count": 5600,
+    "key_specs": {
+      "upper": "mesh",
+      "sole": "carbon rubber",
+      "weight_g": "260",
+      "waterproof": "no",
+      "closure": "lace-up",
+      "color_options": "black,blue,green,grey"
+    },
+    "image_url": "",
+    "product_url": "https://www.decathlon.in/kiprun-ks500",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "Best budget running shoe. Solid grip on wet roads.",
+      "Durable rubber sole, no peeling after 6 months.",
+      "Great value. Only downside is limited color options."
+    ]
+  },
+  {
+    "product_id": "rs-010",
+    "title": "Under Armour Charged Rogue 3",
+    "brand": "Under Armour",
+    "price_inr": 5999,
+    "rating": 4.3,
+    "rating_count": 780,
+    "key_specs": {
+      "upper": "mesh",
+      "sole": "rubber",
+      "weight_g": "285",
+      "waterproof": "no",
+      "closure": "lace-up",
+      "color_options": "black,grey,blue"
+    },
+    "image_url": "",
+    "product_url": "https://www.underarmour.in/charged-rogue-3",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "Charged cushioning is responsive and durable.",
+      "Good traction on wet roads. Used during monsoon commutes.",
+      "Runs slightly narrow. Order half size up."
+    ]
+  }
+]

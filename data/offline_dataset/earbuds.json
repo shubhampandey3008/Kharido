@@ -1,0 +1,242 @@
+[
+  {
+    "product_id": "eb-001",
+    "title": "boAt Airdopes 141",
+    "brand": "boAt",
+    "price_inr": 999,
+    "rating": 4.0,
+    "rating_count": 45200,
+    "key_specs": {
+      "battery_life_h": "42",
+      "driver_mm": "8",
+      "noise_cancellation": "no",
+      "water_resistance": "IPX4",
+      "connectivity": "Bluetooth 5.1",
+      "type": "TWS"
+    },
+    "image_url": "",
+    "product_url": "https://www.boat-lifestyle.com/airdopes-141",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "Great value for money. Sound quality is good for the price.",
+      "Battery lasts about 5h per charge as advertised.",
+      "Mic quality is average — voice sounds muffled on calls."
+    ]
+  },
+  {
+    "product_id": "eb-002",
+    "title": "Sony WF-C500",
+    "brand": "Sony",
+    "price_inr": 3990,
+    "rating": 4.3,
+    "rating_count": 8740,
+    "key_specs": {
+      "battery_life_h": "30",
+      "driver_mm": "6",
+      "noise_cancellation": "no",
+      "water_resistance": "IPX4",
+      "connectivity": "Bluetooth 5.0",
+      "type": "TWS"
+    },
+    "image_url": "",
+    "product_url": "https://www.sony.co.in/wf-c500",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "Excellent sound quality with punchy bass. Clear vocals.",
+      "Comfortable fit, stays put during workouts.",
+      "No ANC but passive isolation is decent."
+    ]
+  },
+  {
+    "product_id": "eb-003",
+    "title": "Samsung Galaxy Buds FE",
+    "brand": "Samsung",
+    "price_inr": 5499,
+    "rating": 4.2,
+    "rating_count": 3120,
+    "key_specs": {
+      "battery_life_h": "30",
+      "driver_mm": "10",
+      "noise_cancellation": "yes",
+      "water_resistance": "IPX2",
+      "connectivity": "Bluetooth 5.2",
+      "type": "TWS"
+    },
+    "image_url": "",
+    "product_url": "https://www.samsung.com/in/galaxy-buds-fe",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "ANC works surprisingly well at this price point.",
+      "Bass is strong. Good for music lovers.",
+      "Only IPX2 — not suitable for heavy rain or workouts."
+    ]
+  },
+  {
+    "product_id": "eb-004",
+    "title": "OnePlus Nord Buds 2r",
+    "brand": "OnePlus",
+    "price_inr": 1799,
+    "rating": 4.1,
+    "rating_count": 12500,
+    "key_specs": {
+      "battery_life_h": "38",
+      "driver_mm": "12.4",
+      "noise_cancellation": "no",
+      "water_resistance": "IP55",
+      "connectivity": "Bluetooth 5.3",
+      "type": "TWS"
+    },
+    "image_url": "",
+    "product_url": "https://www.oneplus.in/nord-buds-2r",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "IP55 rating means they survive sweat and light rain easily.",
+      "Good bass for a budget pair. Loud volume.",
+      "Latency is low — works well for gaming and videos."
+    ]
+  },
+  {
+    "product_id": "eb-005",
+    "title": "Apple AirPods (3rd Gen)",
+    "brand": "Apple",
+    "price_inr": 17900,
+    "rating": 4.6,
+    "rating_count": 6800,
+    "key_specs": {
+      "battery_life_h": "30",
+      "driver_mm": "custom",
+      "noise_cancellation": "no",
+      "water_resistance": "IPX4",
+      "connectivity": "Bluetooth 5.0",
+      "type": "TWS"
+    },
+    "image_url": "",
+    "product_url": "https://www.apple.com/in/airpods-3rd-generation",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "Spatial audio is exceptional. Seamless iPhone integration.",
+      "No ANC is a miss at this price. Passive isolation is poor.",
+      "Comfortable and lightweight. Fit is not secure for intense workouts."
+    ]
+  },
+  {
+    "product_id": "eb-006",
+    "title": "Noise Buds VS104",
+    "brand": "Noise",
+    "price_inr": 1299,
+    "rating": 3.9,
+    "rating_count": 28000,
+    "key_specs": {
+      "battery_life_h": "50",
+      "driver_mm": "13",
+      "noise_cancellation": "no",
+      "water_resistance": "IPX5",
+      "connectivity": "Bluetooth 5.3",
+      "type": "TWS"
+    },
+    "image_url": "",
+    "product_url": "https://www.gonoise.com/buds-vs104",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "50h total battery is impressive at this price.",
+      "Sound is bass-heavy. Treble lacks clarity.",
+      "Build quality feels plasticky but works well for gym use."
+    ]
+  },
+  {
+    "product_id": "eb-007",
+    "title": "JBL Tune 230NC TWS",
+    "brand": "JBL",
+    "price_inr": 4499,
+    "rating": 4.2,
+    "rating_count": 5400,
+    "key_specs": {
+      "battery_life_h": "40",
+      "driver_mm": "6",
+      "noise_cancellation": "yes",
+      "water_resistance": "IPX4",
+      "connectivity": "Bluetooth 5.2",
+      "type": "TWS"
+    },
+    "image_url": "",
+    "product_url": "https://www.jbl.com/in/tune-230nc-tws",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "ANC effectively blocks office noise. Good for commuting.",
+      "40h total battery with case is excellent.",
+      "JBL Pure Bass sound signature is enjoyable."
+    ]
+  },
+  {
+    "product_id": "eb-008",
+    "title": "Realme Buds T300",
+    "brand": "Realme",
+    "price_inr": 1699,
+    "rating": 4.0,
+    "rating_count": 9800,
+    "key_specs": {
+      "battery_life_h": "38",
+      "driver_mm": "10",
+      "noise_cancellation": "yes",
+      "water_resistance": "IP54",
+      "connectivity": "Bluetooth 5.3",
+      "type": "TWS"
+    },
+    "image_url": "",
+    "product_url": "https://www.realme.com/in/realme-buds-t300",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "ANC at this price is surprising — works decently in commute.",
+      "Sound is balanced and clear for calls.",
+      "Earbud loosened from case once — build could be better."
+    ]
+  },
+  {
+    "product_id": "eb-009",
+    "title": "Sony WF-1000XM5",
+    "brand": "Sony",
+    "price_inr": 19990,
+    "rating": 4.7,
+    "rating_count": 2100,
+    "key_specs": {
+      "battery_life_h": "36",
+      "driver_mm": "8.4",
+      "noise_cancellation": "yes",
+      "water_resistance": "IPX4",
+      "connectivity": "Bluetooth 5.3",
+      "type": "TWS"
+    },
+    "image_url": "",
+    "product_url": "https://www.sony.co.in/wf-1000xm5",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "Best ANC I've experienced. Blocks everything — flight, office, traffic.",
+      "Sound quality is reference-grade. Crystal clear highs and deep bass.",
+      "Premium price justified. Small form factor is comfortable all day."
+    ]
+  },
+  {
+    "product_id": "eb-010",
+    "title": "Oppo Enco Buds 2",
+    "brand": "Oppo",
+    "price_inr": 1299,
+    "rating": 3.8,
+    "rating_count": 14200,
+    "key_specs": {
+      "battery_life_h": "28",
+      "driver_mm": "10",
+      "noise_cancellation": "no",
+      "water_resistance": "IP54",
+      "connectivity": "Bluetooth 5.3",
+      "type": "TWS"
+    },
+    "image_url": "",
+    "product_url": "https://www.oppo.com/in/accessories/enco-buds-2",
+    "source": "offline_dataset",
+    "raw_reviews": [
+      "Decent sound for the price. Call quality is clear.",
+      "IP54 handles sweat and splashes well.",
+      "Battery life is below average — needs charging every day."
+    ]
+  }
+]
