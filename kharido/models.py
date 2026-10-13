@@ -121,7 +121,7 @@ class Product(BaseModel):
     )
     image_url: str = ""
     product_url: str = ""
-    source: Literal["scrapingbee", "offline_dataset", "unknown"] = "unknown"
+    source: Literal["apify", "offline_dataset", "unknown"] = "unknown"
     raw_reviews: list[str] = Field(
         default_factory=list,
         description="Up to 20 raw review snippets",

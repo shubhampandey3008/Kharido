@@ -26,7 +26,7 @@ class Settings(BaseSettings):
     tavily_api_key: str = Field("", alias="TAVILY_API_KEY")
 
     # Scraping
-    scrapingbee_api_key: str = Field("", alias="SCRAPINGBEE_API_KEY")
+    apify_api_token: str = Field("", alias="APIFY_API_TOKEN")
 
     # Tracing
     langchain_api_key: str = Field("", alias="LANGCHAIN_API_KEY")

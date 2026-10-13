@@ -9,7 +9,7 @@ from __future__ import annotations
 
 import structlog
 
-from kharido.models import ParsedQuery, PriorityWeights
+from kharido.models import ParsedQuery
 from kharido.state import GraphState
 
 log = structlog.get_logger(__name__)
@@ -51,20 +51,29 @@ def query_understanding_node(state: GraphState) -> dict:
 
     TODO
     ----
-    - Replace stub with real LLM call: chain = _build_chain(); parsed = chain.invoke(...)
     - Add one retry with a correction prompt if validation fails
     - Log token usage to LangSmith / structlog
     """
     raw_query = state["raw_query"]
     log.info("query_understanding.start", raw_query=raw_query)
 
-    # TODO: replace with real LLM call
-    parsed = ParsedQuery(
-        category="running_shoes",
-        use_case_context="stub — not yet implemented",
-        raw_query=raw_query,
-        priority_weights=PriorityWeights(),
-    )
+    chain = _build_chain()
+    parsed: ParsedQuery = chain.invoke({"raw_query": raw_query})
+    # Don't trust the LLM to echo the query verbatim
+    parsed = parsed.model_copy(update={"raw_query": raw_query})
 
     log.info("query_understanding.done", category=parsed.category)
     return {"parsed_query": parsed}
+
+
+if __name__ == "__main__":
+    # Run this node in isolation:
+    #   .venv/bin/python -m kharido.nodes.query_understanding "earbuds under 2000 for gym"
+    import sys
+
+    from kharido.config import configure_tracing
+
+    configure_tracing()
+    query = " ".join(sys.argv[1:]) or "running shoes for rainy season, not white, under 5000 rupees"
+    result = query_understanding_node({"raw_query": query})
+    print(result["parsed_query"].model_dump_json(indent=2))

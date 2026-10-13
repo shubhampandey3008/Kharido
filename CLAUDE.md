@@ -71,7 +71,7 @@ START → query_understanding → criteria_research → product_search
 ### Services
 
 Each service in `kharido/services/` is a class instantiated per-request (no global singletons except `get_settings()`):
-- `ScraperClient` — in V1 always falls back to `data/offline_dataset/{category}.json`. ScrapingBee call is stubbed.
+- `ScraperClient` — calls Apify scrapers for Flipkart (product `TBFjma2NhVb30QONt`, reviews `MgqDrxBkXJGDF4P7I`) and Amazon (product `BG3WDrGdteHgZgbPK`, reviews `8vhDnIX6dStLlGVr7`) when `APIFY_API_TOKEN` is set; merges and deduplicates results; always falls back to `data/offline_dataset/{category}.json`.
 - `TavilySearchClient` — web search for criteria research (stubbed in V1).
 - `CriteriaCache` — SQLite table `criteria_cache`; `CriteriaCache.get(category)` returns `None` on miss or expiry.
 - `ScraperCache` — diskcache for raw API responses; keyed via `make_key(source, params)`.
@@ -82,6 +82,7 @@ Each service in `kharido/services/` is a class instantiated per-request (no glob
 `kharido/config.py` exposes a `get_settings()` singleton (LRU-cached). All env vars live in `.env` (copy `.env.example`). Key vars:
 - `KHARIDO_REASONING_MODEL` — used for query parsing, criteria extraction, recommendation reasoning (default: `claude-sonnet-4-6`)
 - `KHARIDO_EXTRACTION_MODEL` — used for per-review classification (default: `claude-haiku-4-5-20251001`)
+- `APIFY_API_TOKEN` — Apify token for Flipkart product and review scrapers
 - `KHARIDO_OFFLINE_DATASET_DIR` — path to the JSON fallback dataset
 
 ### API / Frontend boundary
@@ -98,5 +99,5 @@ LangGraph 1.x removed `langgraph.graph.graph.CompiledGraph`. Use `from langgraph
 
 ## Build versions
 
-- **V1** (current): all nodes are workflow stubs with `TODO` markers. No real LLM calls yet. ScrapingBee and Tavily are stubbed; offline dataset is the data source.
+- **V1** (current): all nodes are workflow stubs with `TODO` markers. No real LLM calls yet. Apify scraper calls use `APIFY_API_TOKEN` when set; otherwise the offline dataset is the data source. Tavily is stubbed.
 - **V2**: replace node stubs with real LLM calls, upgrade `criteria_research` and `product_search` to agent loops, integrate Mem0.

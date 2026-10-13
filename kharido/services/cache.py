@@ -28,7 +28,7 @@ from kharido.models import CategoryCriteria
 
 class ScraperCache:
     """
-    Disk-based cache for raw ScrapingBee API responses.
+    Disk-based cache for raw Apify API responses.
 
     Caching every raw response means repeated dev runs cost zero API credits.
     Default TTL is 24 hours (products change daily).

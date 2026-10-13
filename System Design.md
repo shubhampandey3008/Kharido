@@ -17,7 +17,7 @@ Strengths:
 Real challenges:
 
 - No official free API from Amazon or Flipkart for shopper-side product search. Flipkart's public API is seller-facing only, for listings, orders, and returns.
-- Workaround: third-party scraper APIs with free tiers, for example ScrapingBee around 1000 free credits, QuickCommerce API around 100 free credits, enough to build and demo without spending money.
+- Workaround: third-party scraper APIs with free tiers, for example Apify with free actor runs for both Flipkart and Amazon, enough to build and demo without spending money.
 - Self-built scraping with Playwright or BeautifulSoup is possible and more impressive if it works, but bot detection such as CAPTCHAs, IP blocks, and shifting page structure makes it a timeline risk. Treat as a stretch goal, not the version one path.
 - Verdict: feasible. Recommended path is to build core agent logic against a scraper API or small static dataset first, then add real or self-built scraping later.
 
@@ -66,7 +66,7 @@ The stack is chosen for learning agentic AI. The core is LangGraph because it hi
 | Structured output | Pydantic with with\_structured\_output | V1 | Reliable, validated LLM output |
 | Web search for criteria | Tavily (free tier, built for agents); Exa or Brave as alternatives | V1 | Tool calling |
 | Extracting page text | Tavily extract or trafilatura | V1 | Cleaning messy web data |
-| Product and review data | ScrapingBee or a similar scraper API, plus an offline JSON dataset | V1 | Handling real-world data limits |
+| Product and review data | Apify actors for Flipkart and Amazon, plus an offline JSON dataset | V1 | Handling real-world data limits |
 | Running candidates in parallel | LangGraph Send API | V1 | Fan-out and fan-in (map-reduce) |
 | Caching and logs | SQLite and diskcache | V1 | Keeping cost down |
 | Pause and resume for Show alternative | LangGraph checkpointer (SqliteSaver) with interrupt | V1 | Persistence, human-in-the-loop |

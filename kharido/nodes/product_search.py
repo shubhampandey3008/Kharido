@@ -1,8 +1,8 @@
 """
 Node 3 — Product Search.
 
-V1: fixed call to ScrapingBee (or offline dataset fallback) with one
-    relaxation retry when results are too few.
+V1: fixed call to Apify Flipkart scrapers (or offline dataset fallback) with
+    one relaxation retry when results are too few.
 V2: upgraded to a full agent loop that evaluates results and chooses
     recovery actions (relax price, drop soft filter, rephrase, switch source).
 """
@@ -27,7 +27,7 @@ def product_search_node(state: GraphState) -> dict:
     Flow
     ----
     1. Build search parameters from ParsedQuery.
-    2. Call ScraperClient (ScrapingBee or offline fallback).
+    2. Call ScraperClient (Apify Flipkart scraper or offline fallback).
     3. If result count < _MIN_CANDIDATES, relax price range and drop soft
        filters once, then retry.
     4. Filter out must_avoid violations.
@@ -38,8 +38,6 @@ def product_search_node(state: GraphState) -> dict:
 
     TODO
     ----
-    - Instantiate ScraperClient and call search_products(category, price_min, price_max, ...)
-    - Implement must_avoid post-filter
     - Implement relaxation: widen price_range by 20%, drop optional filters, retry once
     - Fetch reviews for top MAX_CANDIDATES via scraper.fetch_reviews(product_url)
     - V2: replace with agent loop using LLM to decide recovery action
@@ -52,7 +50,7 @@ def product_search_node(state: GraphState) -> dict:
 
     log.info("product_search.start", category=parsed.category)
 
-    # TODO: call ScraperClient — for now load from offline dataset via ScraperClient
+    # Calls Apify Flipkart Product Scraper; falls back to offline dataset when token is absent
     from kharido.services.scraper import ScraperClient
 
     scraper = ScraperClient()
@@ -73,3 +71,36 @@ def product_search_node(state: GraphState) -> dict:
 
     log.info("product_search.done", num_candidates=len(candidates))
     return {"candidates": candidates}
+
+
+if __name__ == "__main__":
+    # Run this node in isolation:
+    #   .venv/bin/python -m kharido.nodes.product_search "earbuds under 2000 for gym"
+    import sys
+
+    from kharido.config import configure_tracing
+    from kharido.nodes.query_understanding import query_understanding_node
+
+    configure_tracing()
+    query = " ".join(sys.argv[1:]) or "earbuds under 2000 for gym"
+
+    print(f"Query: {query}\n")
+    state = query_understanding_node({"raw_query": query})
+    print(f"Parsed: category={state['parsed_query'].category}, "
+          f"price_max={state['parsed_query'].price_range.max_inr}\n")
+
+    result = product_search_node(state)
+    candidates = result.get("candidates", [])
+    error = result.get("error")
+
+    if error:
+        print(f"Error: {error}")
+    else:
+        print(f"Found {len(candidates)} candidates:\n")
+        for p in candidates:
+            price_str = f"₹{p.price_inr:.0f}" if p.price_inr else "price N/A"
+            rating_str = f"{p.rating:.1f}★ ({p.rating_count} reviews)" if p.rating else "no rating"
+            print(f"  [{p.source}] {p.title}")
+            print(f"    {price_str}  {rating_str}")
+            print(f"    {p.product_url[:80]}")
+            print()

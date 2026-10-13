@@ -1,6 +1,6 @@
 # Offline Dataset
 
-Fallback product data used when the ScrapingBee API is unavailable or credits run out.
+Fallback product data used when the Apify API token is absent or a scraper run fails.
 
 ## Structure
 
