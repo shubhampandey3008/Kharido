@@ -71,7 +71,7 @@ START → query_understanding → criteria_research → product_search
 ### Services
 
 Each service in `kharido/services/` is a class instantiated per-request (no global singletons except `get_settings()`):
-- `ScraperClient` — calls Apify scrapers for Flipkart (product `TBFjma2NhVb30QONt`, reviews `MgqDrxBkXJGDF4P7I`) and Amazon (product `BG3WDrGdteHgZgbPK`, reviews `8vhDnIX6dStLlGVr7`) when `APIFY_API_TOKEN` is set; merges and deduplicates results; always falls back to `data/offline_dataset/{category}.json`.
+- `ScraperClient` — calls Apify scrapers for Flipkart (product `TBFjma2NhVb30QONt`, reviews `MgqDrxBkXJGDF4P7I`) and Amazon (product `se6u51NCji6y89vBS`, reviews `8vhDnIX6dStLlGVr7`) when `APIFY_API_TOKEN` is set; merges and deduplicates results; always falls back to `data/offline_dataset/{category}.json`.
 - `TavilySearchClient` — web search for criteria research (stubbed in V1).
 - `CriteriaCache` — SQLite table `criteria_cache`; `CriteriaCache.get(category)` returns `None` on miss or expiry.
 - `ScraperCache` — diskcache for raw API responses; keyed via `make_key(source, params)`.

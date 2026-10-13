@@ -10,7 +10,7 @@ Actors used
 -----------
 - Product search (Flipkart) : shahidirfan/flipkart-product-scraper  (TBFjma2NhVb30QONt)
 - Review fetch   (Flipkart) : shahidirfan/flipkart-reviews-scraper  (MgqDrxBkXJGDF4P7I)
-- Product search (Amazon)   : junglee/amazon-crawler                (BG3WDrGdteHgZgbPK)
+- Product search (Amazon)   : automly/amazon-scraper                (se6u51NCji6y89vBS)
 - Review fetch   (Amazon)   : delicious_zebu/amazon-reviews-scraper (8vhDnIX6dStLlGVr7)
 
 API pattern
@@ -59,24 +59,24 @@ review_id, rating, title, review_text str/number | null
 author, date, verified_purchase        str/bool | null
 helpful_count, unhelpful_count         number | null
 
-Input schema — Amazon product actor (BG3WDrGdteHgZgbPK)
+Input schema — Amazon product actor (se6u51NCji6y89vBS)
 ---------------------------------------------------------
-categoryOrProductUrls  array   Amazon search/category URLs or product URLs (required)
-maxItemsPerStartUrl    int     Max results per URL
-countryCode            str     Delivery country for INR pricing (e.g. "IN")
-language               str     Page language preference
-proxyCountry           str     Proxy country to avoid geo-blocking
+keywords     array   Search terms, e.g. ["office chair"] (required)
+marketplace  str     Amazon TLD — "in" for amazon.in, "com" for amazon.com, etc.
+maxItems     int     Max products to extract
 
 Output fields — Amazon product actor
 -------------------------------------
-title, url, asin, brand              str | null
-price                                {value: number, currency: str} | null
-listPrice                            {value: number, currency: str} | null
-stars, reviewsCount                  number | null
-starsBreakdown                       object | null
-inStock                              bool | null
+asin, url, title, brand              str | null
+price                                str | null  — INR string e.g. "₹3,899" or "1 option from ₹3,899.00"
+list_price                           str | null
+discount_percent                     number | null
+rating                               number | null  — out of 5
+review_count                         number | null
+specs                                object | null  — flat dict of spec key-value pairs
 features                             list[str] | null
-thumbnailImage                       str | null
+images                               list[str] | null  — image URLs
+availability                         str | null
 
 Input schema — Amazon reviews actor (8vhDnIX6dStLlGVr7)
 ---------------------------------------------------------
@@ -102,9 +102,9 @@ CustomersSay, ReviewAspects                      str/list | null
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 from typing import Optional
-from urllib.parse import quote_plus
 
 import httpx
 import structlog
@@ -116,7 +116,7 @@ log = structlog.get_logger(__name__)
 
 _FK_PRODUCT_ACTOR = "TBFjma2NhVb30QONt"  # shahidirfan/flipkart-product-scraper
 _FK_REVIEWS_ACTOR = "MgqDrxBkXJGDF4P7I"  # shahidirfan/flipkart-reviews-scraper
-_AMZ_PRODUCT_ACTOR = "BG3WDrGdteHgZgbPK"  # junglee/amazon-crawler
+_AMZ_PRODUCT_ACTOR = "se6u51NCji6y89vBS"  # automly/amazon-scraper
 _AMZ_REVIEWS_ACTOR = "8vhDnIX6dStLlGVr7"  # delicious_zebu/amazon-reviews-scraper
 
 _APIFY_SYNC_URL = (
@@ -265,20 +265,19 @@ class ScraperClient:
 
     def _call_amazon_products(self, keyword: str, max_results: int) -> list[Product]:
         """
-        Run Amazon Crawler and normalise results.
+        Run automly/amazon-scraper and normalise results.
 
-        Actor: junglee/amazon-crawler (BG3WDrGdteHgZgbPK)
-        Passes an amazon.in search URL so prices come back in INR.
-        price field shape: {"value": 1999, "currency": "INR"}
+        Actor: automly/amazon-scraper (se6u51NCji6y89vBS)
+        Input : {"keywords": [keyword], "marketplace": "in", "maxItems": N}
+        price field is an INR string e.g. "₹3,899" or "1 option from ₹3,899.00".
         """
-        search_url = f"https://www.amazon.in/s?k={quote_plus(keyword)}"
         log.info("scraper.amazon.products.request", keyword=keyword)
         raw_items = self._apify_run(
             _AMZ_PRODUCT_ACTOR,
             {
-                "categoryOrProductUrls": [{"url": search_url}],
-                "maxItemsPerStartUrl": max_results,
-                "countryCode": "IN",
+                "keywords": [keyword],
+                "marketplace": "in",
+                "maxItems": max_results,
             },
         )
         if raw_items is None:
@@ -286,20 +285,22 @@ class ScraperClient:
 
         products: list[Product] = []
         for item in raw_items:
-            if item.get("error"):
+            if not item.get("title"):
                 continue
 
-            price_obj = item.get("price") or {}
-            price_inr = float(price_obj["value"]) if isinstance(price_obj, dict) and price_obj.get("value") else None
+            price_inr = _parse_inr_price(item.get("price"))
 
-            rating = _safe_float(item.get("stars"), max_val=5.0)
-            rating_count = item.get("reviewsCount")
+            rating = _safe_float(item.get("rating"), max_val=5.0)
+            rating_count = item.get("review_count")
 
-            key_specs: dict[str, str] = {}
-            features = item.get("features") or []
-            for i, feat in enumerate(features):
+            # specs is a flat dict; features is a list of strings
+            key_specs = _parse_specs(item.get("specs"))
+            for i, feat in enumerate(item.get("features") or []):
                 if feat:
                     key_specs[f"feature_{i + 1}"] = str(feat)
+
+            images = item.get("images") or []
+            image_url = images[0] if images else ""
 
             product_url = item.get("url", "")
             product_id = item.get("asin") or product_url or f"amz-{len(products)}"
@@ -313,7 +314,7 @@ class ScraperClient:
                     rating=rating,
                     rating_count=int(rating_count) if rating_count is not None else None,
                     key_specs=key_specs,
-                    image_url=item.get("thumbnailImage", ""),
+                    image_url=image_url,
                     product_url=product_url,
                     source="apify",
                 )
@@ -390,7 +391,7 @@ class ScraperClient:
             log.warning("scraper.apify.exception", actor=actor_id, error=str(exc))
             return None
 
-        if response.status_code != 200:
+        if response.status_code not in (200, 201):
             log.warning(
                 "scraper.apify.error",
                 actor=actor_id,
@@ -441,6 +442,19 @@ class ScraperClient:
 # ---------------------------------------------------------------------------
 
 
+def _parse_inr_price(price_str: object) -> Optional[float]:
+    """Extract a float from INR price strings like '₹3,899', '1 option from ₹3,899.00'."""
+    if not price_str or not isinstance(price_str, str):
+        return None
+    match = re.search(r"₹([\d,]+(?:\.\d+)?)", price_str)
+    if not match:
+        return None
+    try:
+        return float(match.group(1).replace(",", ""))
+    except ValueError:
+        return None
+
+
 def _safe_float(value: object, max_val: float = 5.0) -> Optional[float]:
     if value is None:
         return None
@@ -467,12 +481,17 @@ def _parse_specs(specs: object) -> dict[str, str]:
 
 
 def _merge_products(fk: list[Product], amz: list[Product]) -> list[Product]:
-    """Interleave Flipkart and Amazon results, deduplicate by product_url."""
+    """Round-robin interleave Flipkart and Amazon results, deduplicate by product_url."""
+    from itertools import zip_longest
+
     seen: set[str] = set()
     merged: list[Product] = []
-    for p in fk + amz:
-        key = p.product_url or p.product_id
-        if key and key not in seen:
-            seen.add(key)
-            merged.append(p)
+    for fk_p, amz_p in zip_longest(fk, amz):
+        for p in (fk_p, amz_p):
+            if p is None:
+                continue
+            key = p.product_url or p.product_id
+            if key and key not in seen:
+                seen.add(key)
+                merged.append(p)
     return merged
